@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from EcecuteCommandBot import EcecuteCommandBot
 
-
 app = Flask(__name__, template_folder='template')
 
 @app.route('/classroom')
