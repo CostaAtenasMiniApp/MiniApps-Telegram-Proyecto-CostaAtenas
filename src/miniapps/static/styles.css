@@ -2,7 +2,7 @@
 :root {
     --color-primary: #4e82bf; /* Azul medio */
     --color-secondary: #e3c83b; /* Amarillo dorado */
-    --color-accent: #7e92bf; /* Azul grisáceo */
+    --color-accent: #1b4dc1; /* Azul grisáceo */
     --color-text: #edf3f8; /* Blanco azulado */
     --color-header:#87CEEB; /* Azul claro */
 }
@@ -38,9 +38,7 @@ h1 {
     left:50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-
     margin: 0;
-
     font-size: 1.8rem;
     text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
 }
