@@ -12,7 +12,7 @@ def classroom():
 def professor():
     return render_template('miniapp_professor/index.html')
 
-# Token del bot (guárdalo en una variable de entorno en producción)
+# Token del bot (guardado en una variable de entorno en producción)
 @app.route('/execute-command', methods=['POST'])
 def execute_command():
     command_bot = EcecuteCommandBot(request.json)
