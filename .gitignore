@@ -1,51 +1,49 @@
-# Archivos generados por LaTeX
-*.aux
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Archivos de configuración local
+*.env
+*.local
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de distribución / paquetes
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# Archivos de caché y logs
 *.log
-*.out
-*.toc
-*.lof
-*.lot
-*.fls
-*.fdb_latexmk
-*.synctex.gz
-*.pdfsync
-*.nav
-*.snm
-*.vrb
-*.thm
-*.bcf
-*.run.xml
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Archivos de respaldo y temporales
-*~
-*.backup
-*.swp
-*.swo
+# Archivos de base de datos
+*.db
+*.sqlite3
 
+# Archivos de configuración de Flask
+instance/
 
-# Archivos específicos de editores
-## TeXShop
-*.texlive*
-## TeXnicCenter
-*.tps
-## TeXworks
-*.tw*
+# Archivos de macOS
+.DS_Store
 
-# Paquetes y bibliotecas
-## MiKTeX
-/miktex/
-## TeX Live
-/texlive/
+# Archivos de Jupyter Notebook
+.ipynb_checkpoints/
 
-/Articulo/
+# Archivos de Sphinx
+docs/_build/
 
-# Carpetas generadas por algunos editores
-/.vscode/
-/.idea/
-
-# Archivos de datos de Overleaf (si trabajas con Overleaf)
-*.RData
-*.Rhistory
-
-/.venv/
-.env
+# Archivos de testing
+.pytest_cache/
