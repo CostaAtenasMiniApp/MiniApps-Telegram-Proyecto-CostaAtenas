@@ -2,7 +2,7 @@
 from .icommand import ICommand
 from telegram import Update
 from telegram.ext import CallbackContext
-from states.registration_state_machine import RegistrationStateMachine  # Implementación de State Pattern
+from src.bots.bot_student.states.registration_state_machine import RegistrationStateMachine  # Implementación de State Pattern
 
 class RegisterCommand(ICommand):
     async def execute(self, update: Update, context: CallbackContext) -> None:

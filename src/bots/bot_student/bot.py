@@ -1,7 +1,7 @@
 # bot.py
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
 from telegram import Update
-from handlers import CommandRouter
+from src.bots.bot_student.handlers import CommandRouter
 
 class TelegramBot:
     def __init__(self, token: str):

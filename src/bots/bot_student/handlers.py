@@ -1,5 +1,5 @@
 # handlers.py
-from bot_commands import (
+from src.bots.bot_student.bot_commands import (
     StartCommand, HelpCommand, RegisterCommand,
     ListPersonalCoursesCommand, ViewContentCommand,
     SubmitTaskCommand, gradesCommand,
@@ -19,7 +19,7 @@ class CommandRouter:
             'grades': 'Mostrar calificaciones obtenidas',
             'forum': 'Acceder al foro de discusión del curso',
             'progress': 'Mostrar progreso en el curso',
-            "register": 'Registrarse en un curso',
+            "register": 'Registrarse en un curso'
         }
         self._commands = {
             "start": StartCommand(),
