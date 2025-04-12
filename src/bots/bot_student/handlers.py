@@ -10,26 +10,27 @@ from telegram.ext import CallbackContext
 
 class CommandRouter:
     def __init__(self):
-        available_commands = {
+        self.available_commands = {
             'start': 'Mostrar menú principal y opciones disponibles',
+            'help': 'Mostrar ayuda y soporte disponible',
             'mycourses': 'Listar cursos en los que estás inscrito',
             'viewcontent': 'Mostrar contenido disponible del curso',
             'submittask': 'Enviar una tarea completada',
             'grades': 'Mostrar calificaciones obtenidas',
             'forum': 'Acceder al foro de discusión del curso',
             'progress': 'Mostrar progreso en el curso',
-            'help': 'Mostrar ayuda y soporte disponible'
+            "register": 'Registrarse en un curso',
         }
         self._commands = {
             "start": StartCommand(),
-            "help": HelpCommand(available_commands),
-            "register": RegisterCommand(),
+            "help": HelpCommand(self.available_commands),
             "mycourses": ListPersonalCoursesCommand(),
             "viewcontent": ViewContentCommand(),
             "submittask": SubmitTaskCommand(),
             "grades": gradesCommand(),
             "forum": GoToDiscussionforumCommand(),
             "progress": ShowProgressInCourseCommand(),
+            "register": RegisterCommand(),
             # ... add more commands here
         }
 
@@ -38,4 +39,4 @@ class CommandRouter:
         if command:
             await command.execute(update, context)
         else:
-            update.message.reply_text("⚠️ Comando no reconocido. Usa /help")
+            await update.message.reply_text("⚠️ Comando no reconocido. Usa /help")

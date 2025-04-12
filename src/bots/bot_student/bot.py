@@ -20,10 +20,16 @@ class TelegramBot:
         self._application.add_handler(CommandHandler("forum", self._handle_command))
         self._application.add_handler(CommandHandler("progress", self._handle_command))
 
+        # Manejador para comandos no definidos
+        self._application.add_handler(MessageHandler(filters.COMMAND, self._handle_unknown_command))
+
         # Manejo de mensajes no comandos
         self._application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, self._handle_message))
 
         self._application.run_polling()
+
+    async def _handle_unknown_command(self, update: Update, context: CallbackContext):
+        await update.message.reply_text("⚠️ Lo siento, no reconozco ese comando. Usa /help para ver los comandos disponibles.")
 
     async def _handle_command(self, update: Update, context: CallbackContext):
         command_name = update.message.text.split()[0][1:]  # Extrae "start" de "/start"
