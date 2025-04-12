@@ -1,0 +1,1 @@
+python -m src.bots.bot_student.main
