@@ -1,29 +1,33 @@
 # bot.py
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
 from telegram import Update
 from handlers import CommandRouter
 
 class TelegramBot:
     def __init__(self, token: str):
-        self._updater = Updater(token)
+        self._application = Application.builder().token(token).build()
         self._router = CommandRouter()  # Inyecta el router
 
     def start(self):
-        dispatcher = self._updater.dispatcher
-
         # Mapeo dinámico de comandos
-        dispatcher.add_handler(CommandHandler("start", self._handle_command))
-        dispatcher.add_handler(CommandHandler("help", self._handle_command))
-        dispatcher.add_handler(CommandHandler("register", self._handle_command))
+        self._application.add_handler(CommandHandler("start", self._handle_command))
+        self._application.add_handler(CommandHandler("help", self._handle_command))
+        self._application.add_handler(CommandHandler("register", self._handle_command))
+        self._application.add_handler(CommandHandler("mycourses", self._handle_command))
+        self._application.add_handler(CommandHandler("viewcontent", self._handle_command))
+        self._application.add_handler(CommandHandler("submittask", self._handle_command))
+        self._application.add_handler(CommandHandler("grades", self._handle_command))
+        self._application.add_handler(CommandHandler("forum", self._handle_command))
+        self._application.add_handler(CommandHandler("progress", self._handle_command))
 
         # Manejo de mensajes no comandos
-        dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, self._handle_message))
+        self._application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, self._handle_message))
 
-        self._updater.start_polling()
+        self._application.run_polling()
 
-    def _handle_command(self, update: Update, context: CallbackContext) -> None:
+    async def _handle_command(self, update: Update, context: CallbackContext):
         command_name = update.message.text.split()[0][1:]  # Extrae "start" de "/start"
-        self._router.handle(command_name, update, context)
+        await self._router.handle(command_name, update, context)
 
     def _handle_message(self, update: Update, context: CallbackContext) -> None:
         user_id = update.effective_user.id

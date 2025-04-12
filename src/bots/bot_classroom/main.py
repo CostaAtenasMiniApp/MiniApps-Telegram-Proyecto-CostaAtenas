@@ -1,6 +1,10 @@
 # main.py
 from bot import TelegramBot
+import os
+from dotenv import load_dotenv
 
 if __name__ == "__main__":
-    bot = TelegramBot("TU_TOKEN_DE_TELEGRAM")
+    load_dotenv()
+    token = os.getenv("StudientCifPlayasBot")
+    bot = TelegramBot(token)
     bot.start()

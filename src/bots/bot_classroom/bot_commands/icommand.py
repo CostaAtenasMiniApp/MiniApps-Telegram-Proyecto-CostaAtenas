@@ -5,7 +5,7 @@ from telegram.ext import CallbackContext
 from abc import ABC, abstractmethod
 
 
-class Command(ABC):
+class ICommand(ABC):
     @abstractmethod
-    def execute(self, update: Update, context: CallbackContext) -> None:
+    async def execute(self, update: Update, context: CallbackContext) -> None:
         pass
