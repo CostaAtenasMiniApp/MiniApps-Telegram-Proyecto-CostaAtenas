@@ -4,14 +4,16 @@ from datetime import date
 class Student:
     def __init__(
         self,
-        id_student: int,
-        name: str,
+        student_id: int,
+        first_name: str,
+        last_name: str,
         email: str,
         registration_date: date,
         enrollments: list[Enrollment]
     ):
-        self.id_student = id_student
-        self.name = name
+        self.student_id = student_id
+        self.first_name = first_name
+        self.last_name = last_name
         self.email = email
-        self.registration_date = registration_date
         self.enrollments = enrollments
+        self.registration_date = registration_date

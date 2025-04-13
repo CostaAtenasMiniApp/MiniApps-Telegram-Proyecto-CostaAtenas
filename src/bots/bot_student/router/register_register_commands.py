@@ -12,7 +12,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 
-async def register_register_commands(dp: Dispatcher):
+async def register_register_commands(connection, dp: Dispatcher):
     @dp.message(Command("register"))
     async def cmd_register(message: types.Message, state: FSMContext):
         await register(message, state)
@@ -31,4 +31,4 @@ async def register_register_commands(dp: Dispatcher):
 
     @dp.message(RegisterStates.course)
     async def process_course(message: types.Message, state: FSMContext):
-        await register_user_in_db(message, state)
+        await register_user_in_db(connection, message, state)

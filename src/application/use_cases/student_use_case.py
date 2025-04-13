@@ -1,4 +1,4 @@
-from src.infrastructure.repositories.student_repository import StudentRepository
+from infrastructure.repositories.sqlite_student_repository import StudentRepository
 
 class StudentUseCase:
     def __init__(self, student_repository: StudentRepository):
