@@ -1,4 +1,4 @@
-from .course import Course
+from .course import CourseDomain
 
 class Module:
     def __init__(
@@ -7,7 +7,7 @@ class Module:
         name: str,
         description: str,
         order: int,
-        course: Course,
+        course: CourseDomain,
     ):
         self.id_module = id_module
         self.name = name

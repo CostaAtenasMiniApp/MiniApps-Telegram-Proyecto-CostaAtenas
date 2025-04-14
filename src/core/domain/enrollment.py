@@ -1,5 +1,5 @@
 from .student_domain import StudentDomain
-from .course import Course
+from .course import CourseDomain
 from datetime import date
 
 class Enrollment:
@@ -10,7 +10,7 @@ class Enrollment:
         status: str,
         graduation_date: date,
         student: StudentDomain,
-        course: Course
+        course: CourseDomain
     ):
         self.id_enrollment = id_enrollment
         self.enrollment_date = enrollment_date

@@ -7,8 +7,8 @@ import asyncio
 
 import os
 from dotenv import load_dotenv
-from src.core.services import StudentService
-from src.infrastructure.repositories.tortoise_student_repository import TortoiseStudentRepository
+from src.core.services import StudentService, CourseService
+from src.infrastructure.repositories import TortoiseStudentRepository, TortoiseCourseRepository
 from src.infrastructure.database.tortoise.init_db import init_db
 
 from .register_commads import (
@@ -34,11 +34,16 @@ async def cmd_cancel(message: types.Message, state: FSMContext):
 async def main():
     await init_db()
 
+    # Inicializa el repositorio de student y el servicio de student
     student_repository = TortoiseStudentRepository()
     student_service = StudentService(student_repository)
 
+    # Inicializa el repositorio de cursos y el servicio de cursos
+    course_repository = TortoiseCourseRepository()
+    course_service = CourseService(course_repository)
+
     await register_basic_commands(dp)
-    await register_register_commands(student_service, dp)
+    await register_register_commands(student_service, course_service, dp)
     await register_course_commands(dp)
     await register_additional_commands(dp)
     await dp.start_polling(bot)

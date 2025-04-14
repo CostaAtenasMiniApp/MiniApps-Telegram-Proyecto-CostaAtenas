@@ -1,5 +1,5 @@
 from .academic_coordinator import AcademicCoordinator
-from .course import Course
+from .course import CourseDomain
 from .enrollment import Enrollment
 from .evaluation import Evaluation
 from .lesson import Lesson
@@ -9,7 +9,7 @@ from .module import Module
 
 __all__ = [
     "AcademicCoordinator",
-    "Course",
+    "CourseDomain",
     "Enrollment",
     "Evaluation",
     "Lesson",

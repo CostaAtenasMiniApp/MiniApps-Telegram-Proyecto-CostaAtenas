@@ -1,4 +1,4 @@
-from .course import Course
+from .course import CourseDomain
 from .module import Module
 from datetime import date
 
@@ -9,7 +9,7 @@ class Evaluation:
         title: str,
         description: str,
         deadline: date,
-        course: Course,
+        course: CourseDomain,
         module: Module
     ):
         self.id_evaluation = id_evaluation

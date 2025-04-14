@@ -1,4 +1,4 @@
-from .course import Course
+from .course import CourseDomain
 
 class Professor:
     def __init__(
@@ -7,7 +7,7 @@ class Professor:
         name: str,
         email: str,
         specialty: str,
-        courses: list[Course]
+        courses: list[CourseDomain]
     ):
         self.id_professor = id_professor
         self.name = name

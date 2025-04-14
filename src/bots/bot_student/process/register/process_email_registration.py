@@ -1,17 +1,16 @@
 from ...States.RegisterStates import RegisterStates
-from src.core.services import StudentService
-
+from src.core.services import StudentService, CourseService
 
 from aiogram import types
 from aiogram.fsm.context import FSMContext
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
-
 import re
-import sqlite3
 
 
-async def process_email_registration(student_service: StudentService, message: types.Message, state: FSMContext):
+async def process_email_registration(student_service: StudentService
+                                    , course_service: CourseService
+                                    , message: types.Message, state: FSMContext):
     email = message.text.strip()
     if not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email):
         await message.answer("❌ Email inválido. Intenta de nuevo.")
@@ -25,10 +24,8 @@ async def process_email_registration(student_service: StudentService, message: t
 
     await state.update_data(email=email)
 
-    # Mostrar cursos disponibles
-    cursor.execute("SELECT name FROM courses")
-    courses = cursor.fetchall()
-    conn.close()
+    # Mostrar cursos disponibles usando CourseService
+    courses = await course_service.get_all_course()
 
     if not courses:
         await message.answer("No hay cursos disponibles actualmente.")
@@ -36,7 +33,7 @@ async def process_email_registration(student_service: StudentService, message: t
         return
 
     keyboard = ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton(text=course[0])] for course in courses],
+        keyboard=[[KeyboardButton(text=course.name)] for course in courses],
         resize_keyboard=True,
         one_time_keyboard=True
     )
