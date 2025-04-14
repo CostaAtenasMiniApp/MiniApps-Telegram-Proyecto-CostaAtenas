@@ -1,11 +1,19 @@
 from abc import ABC, abstractmethod
-from ..domain.student import Student
+from src.core.domain.student_domain import StudentDomain
 
 class IStudentRepository(ABC):
     @abstractmethod
-    def save(self, student: Student) -> None:
+    async def save(self, student: StudentDomain) -> int:
         pass
 
     @abstractmethod
-    def find_by_id(self, student_id: str) -> Student | None:
+    async def find_by_id(self, student_id: str) -> StudentDomain | None:
+        pass
+
+    @abstractmethod
+    async def find_all(self) -> list[StudentDomain]:
+        pass
+
+    @abstractmethod
+    async def delete(self, student_id: str) -> None:
         pass

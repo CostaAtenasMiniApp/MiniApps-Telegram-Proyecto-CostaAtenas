@@ -1,12 +1,13 @@
 from aiogram import types
 from aiogram.fsm.context import FSMContext
 from aiogram.types import ReplyKeyboardRemove
+from src.core.services import StudentService
+from src.core.domain import StudentDomain
+
+from datetime import datetime
 
 
-import sqlite3
-
-
-async def register_user_in_db(connection, message: types.Message, state: FSMContext):
+async def register_student_in_db(student_service: StudentService, message: types.Message, state: FSMContext):
     course_name = message.text
     user_data = await state.get_data()
 
@@ -15,11 +16,24 @@ async def register_user_in_db(connection, message: types.Message, state: FSMCont
     last_name = user_data['last_name']
     email = user_data['email']
 
-    answer_message = insert_student(connection, course_name,
-                            telegram_id,
-                            first_name,
-                            last_name,
-                            email)
+    student = StudentDomain(
+        student_id=telegram_id,
+        first_name=first_name,
+        last_name=last_name,
+        email=email,
+        registration_date=datetime.now()
+    )
+
+    try:
+        await student_service.create_student(student)
+        answer_message = (
+            f"✅ *Registro completado* ✅\n\n"
+            f"• Nombre: {first_name} {last_name}\n"
+            f"• Email: {email}\n"
+            f"• Curso: {course_name}"
+        )
+    except Exception as e:
+        answer_message = f"❌ Error al registrar al usuario: {str(e)}"
 
     await message.answer(
         answer_message,
@@ -27,28 +41,3 @@ async def register_user_in_db(connection, message: types.Message, state: FSMCont
         reply_markup=ReplyKeyboardRemove()
     )
     await state.clear()
-
-
-def insert_student(connection, course_name:str,
-                telegram_id:int, first_name:str, last_name:str, email):
-
-    # Guardar en la base de datos
-    cursor = connection.cursor()
-    try:
-        cursor.execute(
-            "INSERT INTO users (user_id, first_name, last_name, email) VALUES (?, ?, ?, ?)",
-            (telegram_id, first_name, last_name, email)
-        )
-        connection.commit()
-    except sqlite3.IntegrityError:
-        answer_message = "❌ Error: Ya estás registrado."
-    finally:
-        connection.close()
-
-    answer_message = (
-        f"✅ *Registro completado* ✅\n\n"
-        f"• Nombre: {first_name} {last_name}\n"
-        f"• Email: {email}\n"
-        f"• Curso: {course_name}"
-    )
-    return answer_message

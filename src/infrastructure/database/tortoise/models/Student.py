@@ -7,3 +7,6 @@ class Student(Model):
     first_name = fields.CharField(max_length=255)
     last_name = fields.CharField(max_length=255)
     email = fields.CharField(max_length=255)
+
+    class Meta:
+        table = "students"

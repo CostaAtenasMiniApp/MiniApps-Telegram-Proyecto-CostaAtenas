@@ -4,7 +4,7 @@ from ..commands.register import register
 from ..process.register.first_name import first_name
 from ..process.register.last_name import last_name
 from ..process.register.process_email_registration import process_email_registration
-from ..process.register.register_user_in_db import register_user_in_db
+from ..process.register.register_user_in_db import register_student_in_db
 
 
 from aiogram import Dispatcher, types
@@ -12,7 +12,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 
-async def register_register_commands(connection, dp: Dispatcher):
+async def register_register_commands(student_service, dp: Dispatcher):
     @dp.message(Command("register"))
     async def cmd_register(message: types.Message, state: FSMContext):
         await register(message, state)
@@ -27,8 +27,8 @@ async def register_register_commands(connection, dp: Dispatcher):
 
     @dp.message(RegisterStates.email)
     async def process_email(message: types.Message, state: FSMContext):
-        await process_email_registration(message, state)
+        await process_email_registration(student_service, message, state)
 
     @dp.message(RegisterStates.course)
     async def process_course(message: types.Message, state: FSMContext):
-        await register_user_in_db(connection, message, state)
+        await register_student_in_db(student_service,message, state)

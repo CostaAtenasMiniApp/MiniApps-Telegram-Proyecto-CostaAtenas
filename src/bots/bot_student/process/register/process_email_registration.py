@@ -1,4 +1,5 @@
 from ...States.RegisterStates import RegisterStates
+from src.core.services import StudentService
 
 
 from aiogram import types
@@ -10,19 +11,16 @@ import re
 import sqlite3
 
 
-async def process_email_registration(message: types.Message, state: FSMContext):
+async def process_email_registration(student_service: StudentService, message: types.Message, state: FSMContext):
     email = message.text.strip()
     if not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email):
         await message.answer("❌ Email inválido. Intenta de nuevo.")
         return
 
-    # Verificar si el email ya existe
-    conn = sqlite3.connect('courses.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT email FROM users WHERE email = ?", (email,))
-    if cursor.fetchone():
+    # Verificar si el email ya existe en Student usando StudentService
+    existing_students = await student_service.get_all_students()
+    if any(student.email == email for student in existing_students):
         await message.answer("❌ Este email ya está registrado.")
-        conn.close()
         return
 
     await state.update_data(email=email)
