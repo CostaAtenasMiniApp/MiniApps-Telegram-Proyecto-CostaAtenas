@@ -11,6 +11,7 @@ import re
 async def process_email_registration(student_service: StudentService
                                     , course_service: CourseService
                                     , message: types.Message, state: FSMContext):
+    # Validar email
     email = message.text.strip()
     if not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email):
         await message.answer("❌ Email inválido. Intenta de nuevo.")
@@ -24,9 +25,8 @@ async def process_email_registration(student_service: StudentService
 
     await state.update_data(email=email)
 
-    # Mostrar cursos disponibles usando CourseService
+    # Validar que existan cursos
     courses = await course_service.get_all_course()
-
     if not courses:
         await message.answer("No hay cursos disponibles actualmente.")
         await state.clear()

@@ -7,6 +7,6 @@ class Student(Model):
     first_name = fields.CharField(max_length=255)
     last_name = fields.CharField(max_length=255)
     email = fields.CharField(max_length=255)
-
+    registration_date = fields.DatetimeField(auto_now_add=True)
     class Meta:
         table = "students"

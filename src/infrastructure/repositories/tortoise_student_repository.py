@@ -69,7 +69,6 @@ class TortoiseStudentRepository(IStudentRepository):
                 last_name=model.last_name,
                 email=model.email,
                 registration_date=model.registration_date,
-                enrollments=[]  # Reemplazar con enrollments cargadas
             ))
 
         return students
