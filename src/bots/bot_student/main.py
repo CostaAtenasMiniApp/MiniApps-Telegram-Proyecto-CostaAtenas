@@ -20,7 +20,7 @@ from .register_commads import (
 
 # Configuración inicial
 load_dotenv()
-student_token = os.getenv("StudientCifPlayasBot")
+student_token = os.getenv("StudentCifPlayasBot")
 bot = Bot(token=student_token)
 dp = Dispatcher()
 

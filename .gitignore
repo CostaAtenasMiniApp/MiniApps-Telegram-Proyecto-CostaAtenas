@@ -47,3 +47,4 @@ docs/_build/
 
 # Archivos de testing
 .pytest_cache/
+db.sqlite3-wal
