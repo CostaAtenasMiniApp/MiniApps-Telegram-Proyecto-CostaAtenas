@@ -1,0 +1,314 @@
+/* ESTILOS GENERALES */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* PROGRESS STEPS */
+.progress-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.step.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.step.completed {
+    background-color: #8bc34a;
+    color: white;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ddd;
+    margin: auto 0;
+}
+
+/* NAVEGACIÓN */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navigation button:hover {
+    background-color: #45a049;
+}
+
+.navigation button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* FORMULARIO ESTADÍSTICOS */
+#estadisticos-form {
+    margin-top: 20px;
+}
+
+#estadisticos-form h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#estadisticos-form .form-group {
+    margin-bottom: 20px;
+}
+
+#estadisticos-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#estadisticos-form input[type="text"],
+#estadisticos-form input[type="number"],
+#estadisticos-form textarea,
+#estadisticos-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#estadisticos-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+#estadisticos-form .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#estadisticos-form .checkbox-option {
+    display: flex;
+    align-items: center;
+}
+
+#estadisticos-form .checkbox-option input {
+    margin-right: 5px;
+}
+
+#estadisticos-form .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#estadisticos-form .navigation button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#estadisticos-form .navigation button:hover {
+    background-color: #45a049;
+}
+
+#estadisticos-form .navigation button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* FORMULARIO IDENTIFICACIÓN */
+#identificacion-form {
+    margin-top: 20px;
+}
+
+#identificacion-form h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#identificacion-form .form-group {
+    margin-bottom: 20px;
+}
+
+#identificacion-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#identificacion-form input[type="text"],
+#identificacion-form input[type="email"],
+#identificacion-form input[type="tel"],
+#identificacion-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#identificacion-form .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#identificacion-form .checkbox-option {
+    display: flex;
+    align-items: center;
+}
+
+#identificacion-form .checkbox-option input {
+    margin-right: 5px;
+}
+
+#identificacion-form .navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#identificacion-form .navigation button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#identificacion-form .navigation button:hover {
+    background-color: #45a049;
+}
+
+/* FORMULARIO LEGAL */
+#legal-form {
+    margin-top: 20px;
+}
+
+#legal-form h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#legal-form .form-group {
+    margin-bottom: 20px;
+}
+
+#legal-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#legal-form .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#legal-form .checkbox-option {
+    display: flex;
+    align-items: center;
+}
+
+#legal-form .checkbox-option input {
+    margin-right: 5px;
+}
+
+#legal-form p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+#legal-form p a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+#legal-form p a:hover {
+    text-decoration: underline;
+}
+
+#legal-form .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#legal-form .navigation button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#legal-form .navigation button:hover {
+    background-color: #45a049;
+}
+
+#legal-form .navigation button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
