@@ -1,7 +1,7 @@
 // Carga inicial
 document.addEventListener('DOMContentLoaded', function() {
     loadSection(1);
-    
+
     // Configurar eventos de los pasos
     document.querySelectorAll('.step').forEach(step => {
         step.addEventListener('click', function() {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Función para cargar secciones
 function loadSection(sectionNumber) {
     const sectionFile = `secciones/${sectionNumber === 1 ? 'identificacion' : sectionNumber === 2 ? 'estadisticos' : 'legal'}.html`;
-    
+
     fetch(sectionFile)
         .then(response => response.text())
         .then(html => {
@@ -28,7 +28,7 @@ function loadSection(sectionNumber) {
 // Actualizar la barra de progreso
 function updateProgressSteps(currentStep) {
     const steps = document.querySelectorAll('.step');
-    
+
     steps.forEach((step, index) => {
         step.classList.remove('active', 'completed');
         if (index + 1 < currentStep) {
@@ -46,22 +46,22 @@ function setupSectionEvents() {
     if (proplayasRadios.length) {
         proplayasRadios.forEach(radio => {
             radio.addEventListener('change', function() {
-                document.getElementById('nodo-proplayas-group').style.display = 
+                document.getElementById('nodo-proplayas-group').style.display =
                     this.value === 'Si' ? 'block' : 'none';
             });
         });
     }
-    
+
     const hotelRadios = document.querySelectorAll('input[name="pertenece_hotel"]');
     if (hotelRadios.length) {
         hotelRadios.forEach(radio => {
             radio.addEventListener('change', function() {
-                document.getElementById('nombre-hotel-group').style.display = 
+                document.getElementById('nombre-hotel-group').style.display =
                     this.value === 'Si' ? 'block' : 'none';
             });
         });
     }
-    
+
     // Eventos de navegación
     const nextButtons = document.querySelectorAll('.next-btn');
     if (nextButtons.length) {
@@ -72,7 +72,7 @@ function setupSectionEvents() {
             });
         });
     }
-    
+
     const prevButtons = document.querySelectorAll('.prev-btn');
     if (prevButtons.length) {
         prevButtons.forEach(btn => {
@@ -82,7 +82,7 @@ function setupSectionEvents() {
             });
         });
     }
-    
+
     // Validar formulario antes de enviar
     const submitForm = document.getElementById('legal-form');
     if (submitForm) {
