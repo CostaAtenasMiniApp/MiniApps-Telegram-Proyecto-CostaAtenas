@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos CIF Playa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_landing_page.css') }}">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header>
+        <div class="logo">
+            <h1>Cursos CIF Playa Telegram</h1>
+        </div>
+        <p class="tagline">Aprende desde cualquier lugar, a tu propio ritmo</p>
+    </header>
+
+    <main>
+        <section class="hero animated">
+            <h2>Transforma tu futuro con nuestros cursos en Telegram</h2>
+            <p>Accede a contenido exclusivo, clases en vivo, materiales descargables y soporte personalizado directamente en tu teléfono. Todo lo que necesitas para aprender sin límites.</p>
+
+            <div class="button-container">
+                <a href="https://t.me/tucanal" class="btn" target="_blank">Únete Ahora</a>
+                <a href="#courses" class="btn btn-secondary">Ver Cursos</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card animated delay-1">
+                <div class="feature-icon">📱</div>
+                <h3>Aprendizaje Móvil</h3>
+                <p>Accede a tus cursos desde cualquier lugar, directamente en tu teléfono. Sin apps adicionales, todo en Telegram.</p>
+            </div>
+
+            <div class="feature-card animated delay-1">
+                <div class="feature-icon">🎓</div>
+                <h3>Certificados</h3>
+                <p>Recibe certificados de finalización reconocidos que puedes añadir a tu CV o perfil profesional.</p>
+            </div>
+
+            <div class="feature-card animated delay-1">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Expertos</h3>
+                <p>Aprende de instructores con años de experiencia en sus campos y pasión por enseñar.</p>
+            </div>
+        </section>
+
+        <section id="courses" class="courses animated delay-2">
+            <h2>Nuestros Cursos Destacados</h2>
+
+            <div class="course-list">
+                <div class="course-item">
+                    <h3>Marketing Digital</h3>
+                    <p>Aprende estrategias efectivas para promocionar negocios en redes sociales y Google Ads.</p>
+                    <p class="price">$49.99</p>
+                </div>
+
+                <div class="course-item">
+                    <h3>Programación Python</h3>
+                    <p>Domina los fundamentos de Python y desarrolla tus primeras aplicaciones.</p>
+                    <p class="price">$39.99</p>
+                </div>
+
+                <div class="course-item">
+                    <h3>Fotografía Profesional</h3>
+                    <p>Técnicas avanzadas de composición, iluminación y edición con Lightroom.</p>
+                    <p class="price">$29.99</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials animated delay-3">
+            <h2>Lo que dicen nuestros estudiantes</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">El curso de Marketing Digital cambió completamente mi forma de ver las redes sociales para negocios. Ahora gestiono cuentas para clientes.</p>
+                    <p class="testimonial-author">- Ana M., Emprendedora</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Nunca pensé que podría aprender a programar, pero el método de enseñanza en Telegram hizo que todo fuera muy accesible.</p>
+                    <p class="testimonial-author">- Carlos G., Estudiante</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">La flexibilidad de aprender desde mi teléfono cuando tengo tiempo ha sido increíble. Recomiendo totalmente estos cursos.</p>
+                    <p class="testimonial-author">- Laura P., Diseñadora</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="button-container animated delay-3">
+            <a href="https://t.me/tucanal" class="btn" target="_blank">Empieza a Aprender Hoy</a>
+            <p>7 días de garantía de devolución</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 CIF Playa. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">📱</a>
+                <a href="#" target="_blank">💬</a>
+                <a href="#" target="_blank">✉️</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para partículas -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='script_landing_page.js') }}" defer></script>
+</body>
+</html>

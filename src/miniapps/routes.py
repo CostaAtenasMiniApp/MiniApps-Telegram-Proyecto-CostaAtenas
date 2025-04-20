@@ -79,3 +79,7 @@ def register_routes(app, student_service: StudentService):
         except Exception as e:
             flash(f'Error al procesar el formulario: {str(e)}', 'danger')
             return redirect(url_for('show_form'))
+    
+    @app.route('/', methods=['GET'])
+    def landing_page():
+        return render_template('miniapp_landing_page/index.html')
