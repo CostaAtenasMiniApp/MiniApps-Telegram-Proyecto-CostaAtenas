@@ -5,13 +5,14 @@ from src.core.services import StudentService
 from .EcecuteCommandBot import EcecuteCommandBot
 
 def register_routes(app, student_service: StudentService):
-    @app.route('/classroom')
-    def classroom():
-        return render_template('miniapp_classroom/index.html')
+    @app.route('/', methods=['GET'])
+    def landing_page():
+        return render_template('miniapp_landing_page/index.html')
 
-    @app.route('/professor')
-    def professor():
-        return render_template('miniapp_professor/index.html')
+    @app.route('/student')
+    def classroom():
+        return render_template('miniapp_student/index.html')
+
 
     @app.route('/execute-command', methods=['POST'])
     def execute_command():
@@ -79,7 +80,3 @@ def register_routes(app, student_service: StudentService):
         except Exception as e:
             flash(f'Error al procesar el formulario: {str(e)}', 'danger')
             return redirect(url_for('show_form'))
-    
-    @app.route('/', methods=['GET'])
-    def landing_page():
-        return render_template('miniapp_landing_page/index.html')

@@ -90,6 +90,7 @@ function setupSectionEvents() {
             e.preventDefault();
             alert('Formulario enviado correctamente');
             // Aquí iría el código para enviar los datos
+            
         });
     }
 }
