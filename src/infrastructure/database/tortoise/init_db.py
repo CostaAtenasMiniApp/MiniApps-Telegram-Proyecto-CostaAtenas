@@ -1,4 +1,5 @@
 from tortoise import Tortoise, run_async
+from .models import initialize_discovery_methods
 
 async def init_db():
     # Configuración de la conexión a SQLite
@@ -13,6 +14,7 @@ async def init_db():
 
     # Genera los esquemas en la base de datos solo si no están creados
     await Tortoise.generate_schemas()
+    await initialize_discovery_methods()  # <-- Aquí se inicializan los datos de los nomencladores
     print("✅ Base de datos SQLite inicializada")
 
 # Ejecutar la inicialización (solo para pruebas)

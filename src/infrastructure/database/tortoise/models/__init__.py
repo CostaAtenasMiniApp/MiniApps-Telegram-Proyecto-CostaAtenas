@@ -6,6 +6,10 @@ from .Lesson import Lesson
 from .Module import Module
 from .Professor import Professor
 from .Student import Student
+from .StudentDiscoveryMethod import StudentDiscoveryMethod
+from .DiscoveryMethod import DiscoveryMethod
+from .initialize_discovery_methods import initialize_discovery_methods
+from .Scholarship import Scholarship
 
 __all__ = [
     "AcademicCoordinator",
@@ -15,5 +19,9 @@ __all__ = [
     "Lesson",
     "Module",
     "Professor",
-    "Student"
+    "Student",
+    "StudentDiscoveryMethod",
+    "DiscoveryMethod",
+    "initialize_discovery_methods",
+    "Scholarship"
 ]

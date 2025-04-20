@@ -6,7 +6,7 @@ class StudentService:
     def __init__(self, student_repository: IStudentRepository):
         self.student_repository = student_repository
 
-    async def create_student(self, student) -> StudentDomain:
+    async def create_student(self, student:StudentDomain) -> StudentDomain:
         await self.student_repository.save(student)
         return student
 
