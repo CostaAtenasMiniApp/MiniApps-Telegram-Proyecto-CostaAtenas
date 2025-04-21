@@ -1,0 +1,56 @@
+/* Paleta de colores */
+:root {
+    --color-primary: #4e82bf; /* Azul medio */
+    --color-secondary: #e3c83b; /* Amarillo dorado */
+    --color-accent: #1b4dc1; /* Azul grisáceo */
+    --color-text: #edf3f8; /* Blanco azulado */
+    --color-header:#87CEEB; /* Azul claro */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+    .button-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    button {
+        margin: 0px 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    button {
+        margin-top: 5px;
+    }
+}

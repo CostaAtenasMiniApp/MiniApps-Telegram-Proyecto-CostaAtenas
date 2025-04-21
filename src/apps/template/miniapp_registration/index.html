@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Registro</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles_miniapp_registration.css') }}">
-</head>
-<body>
-
+{% extends "base.html" %}
+{% block title %}Formulario de Registro{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_miniapp_registration.css') }}">
+{% endblock %}
+{% block content %}
     <div class="container">
         <h1>Formulario de Registro</h1>
 
@@ -23,7 +19,9 @@
             <!-- Las secciones se cargarán aquí dinámicamente -->
         </div>
     </div>
+{% endblock %}
 
-    <script src="{{ url_for('static', filename='scripts_miniapp_registration.js') }}" defer></script>
-</body>
-</html>
+{% block js %}
+<!-- Chart.js -->
+<script src="{{ url_for('static', filename='scripts_miniapp_registration.js') }}" defer></script>
+{% endblock %}
