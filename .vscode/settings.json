@@ -1,0 +1,22 @@
+{
+    "python.analysis.extraPaths": [
+        "d:/Projects/MiniApps-Telegram-Proyecto-CostaAtenas/src"
+    ],
+    "editor.fontSize": 12,
+    "python.linting.enabled": true,
+    "cSpell.language": "en,es",
+    "cSpell.enableFiletypes": ["html", "plaintext"],
+    "cSpell.ignoreWords": [
+        "href",
+        "src",
+        "div",
+        "Telegram"
+    ],
+    "cSpell.words": [
+        "descargables",
+        "miniapp"
+    ],
+    "material-icon-theme.folders.associations": {
+        "infrastructure": "components",
+    }
+}

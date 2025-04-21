@@ -8,7 +8,6 @@ env/
 *.local
 
 # Archivos de configuración de IDE
-.vscode/
 .idea/
 
 # Archivos compilados de Python

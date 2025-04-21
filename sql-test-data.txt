@@ -2,21 +2,21 @@ INSERT INTO students (first_name, last_name, email)
 VALUES ('yosbel', 'peante', 'sd@g.com');
 
 INSERT INTO course (
-    course_id, 
-    name, 
-    description, 
-    start_date, 
-    duration, 
-    status, 
+    course_id,
+    name,
+    description,
+    start_date,
+    duration,
+    status,
     coordinator_id
 )
 VALUES (
-    254, 
-    'Playas blancas', 
-    'Sobre playas blancas', 
-    '2025-02-15', 
-    2, 
-    'activo', 
+    254,
+    'Playas blancas',
+    'Sobre playas blancas',
+    '2025-02-15',
+    2,
+    'activo',
     1
 );
 

@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Bot Student",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.bots.bot_student.main",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Miniapp",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.apps.main",
+            "justMyCode": true
+        }
+    ]
+}
