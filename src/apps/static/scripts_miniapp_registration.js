@@ -1,3 +1,10 @@
+// Almacenar datos de los formularios temporalmente
+const formDataStore = {
+    'identificacion-form': null,
+    'estadisticos-form': null,
+    'legal-form': null
+};
+
 // Carga inicial
 document.addEventListener('DOMContentLoaded', function() {
     loadSection(1);
@@ -67,8 +74,17 @@ function setupSectionEvents() {
     if (nextButtons.length) {
         nextButtons.forEach(btn => {
             btn.addEventListener('click', function() {
-                const nextSection = parseInt(this.dataset.next);
-                loadSection(nextSection);
+                const currentForm = document.querySelector('form');
+                if (!currentForm) return;
+                if (currentForm.checkValidity()) {
+                    // Guardar datos del formulario actual
+                    formDataStore[currentForm.id] = new FormData(currentForm);
+
+                    const nextSection = parseInt(this.dataset.next);
+                    loadSection(nextSection);
+                } else {
+                    currentForm.reportValidity(); // Mostrar mensajes de validación
+                }
             });
         });
     }
@@ -83,14 +99,46 @@ function setupSectionEvents() {
         });
     }
 
-    // Validar formulario antes de enviar
-    const submitForm = document.getElementById('legal-form');
-    if (submitForm) {
-        submitForm.addEventListener('submit', function(e) {
+    // Validar y enviar todos los formularios
+    const legalForm = document.getElementById('legal-form');
+    if (legalForm) {
+        legalForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Formulario enviado correctamente');
-            // Aquí iría el código para enviar los datos
-            
+
+            // Guardar datos del formulario legal antes de enviar
+            formDataStore['legal-form'] = new FormData(this);
+
+            // Combinar todos los datos en un solo FormData
+            const combinedFormData = new FormData();
+            for (const formId in formDataStore) {
+                if (formDataStore[formId]) {
+                    for (const [key, value] of formDataStore[formId].entries()) {
+                        combinedFormData.append(key, value);
+                    }
+                }
+            }
+
+            // Enviar los datos al servidor
+            fetch('/registration', {
+                method: 'POST',
+                body: combinedFormData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Formulario enviado correctamente');
+                        // Opcional: Limpiar formDataStore y reiniciar el formulario
+                        formDataStore['identificacion-form'] = null;
+                        formDataStore['estadisticos-form'] = null;
+                        formDataStore['legal-form'] = null;
+                        loadSection(1); // Volver a la primera sección
+                    } else {
+                        alert('Error al enviar el formulario');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al enviar el formulario');
+                });
         });
     }
 }

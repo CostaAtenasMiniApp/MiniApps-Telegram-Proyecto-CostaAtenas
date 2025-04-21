@@ -62,7 +62,7 @@ def register_routes(app, student_service: StudentService):
                 belongs_to_hotel=form_data.get('belongs_to_hotel') == 'true',
                 hotel_name=form_data.get('hotel_name'),
                 age=int(form_data['age']) if form_data.get('age') else None,
-                discovery_method=discovery_methods,
+                discovery_method=form_data.get('discovery_methods'),
                 referral_info=form_data.get('referral_info'),
                 scholarship_code=form_data.get('scholarship_code', 'No aplica'),
                 education_level=form_data.get('education_level'),
@@ -80,3 +80,4 @@ def register_routes(app, student_service: StudentService):
         except Exception as e:
             flash(f'Error al procesar el formulario: {str(e)}', 'danger')
             return redirect(url_for('show_form'))
+

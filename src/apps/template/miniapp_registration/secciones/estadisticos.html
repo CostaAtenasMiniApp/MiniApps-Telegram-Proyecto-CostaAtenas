@@ -6,11 +6,11 @@
             <label>Pertenece a algún hotel?</label>
             <div class="checkbox-group">
                 <div class="checkbox-option">
-                    <input type="radio" id="hotel_si" name="pertenece_hotel" value="Si">
+                    <input type="radio" id="hotel_si" name="belongs_to_hotel" value="Si">
                     <label for="hotel_si" style="display: inline;">Sí</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="radio" id="hotel_no" name="pertenece_hotel" value="No" checked>
+                    <input type="radio" id="hotel_no" name="belongs_to_hotel" value="No" checked>
                     <label for="hotel_no" style="display: inline;">No</label>
                 </div>
             </div>
@@ -18,47 +18,47 @@
 
         <div class="form-group" id="nombre-hotel-group" style="display: none;">
             <label for="nombre_hotel">Nombre del hotel</label>
-            <input type="text" id="nombre_hotel" name="nombre_hotel">
+            <input type="text" id="nombre_hotel" name="hotel_name">
         </div>
 
         <div class="form-group">
             <label for="edad">Edad</label>
-            <input type="number" id="edad" name="edad" min="16" max="99">
+            <input type="number" id="edad" name="age" min="16" max="99">
         </div>
 
         <div class="form-group">
             <label>¿Cómo te enteraste del curso? (Múltiples opciones)</label>
             <div class="checkbox-group">
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_facebook" name="fuente_curso[]" value="Facebook">
+                    <input type="checkbox" id="fuente_facebook" name="discovery_methods[]" value="Facebook">
                     <label for="fuente_facebook" style="display: inline;">Facebook</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_instagram" name="fuente_curso[]" value="Instagram">
+                    <input type="checkbox" id="fuente_instagram" name="discovery_methods[]" value="Instagram">
                     <label for="fuente_instagram" style="display: inline;">Instagram</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_twitter" name="fuente_curso[]" value="Twitter">
+                    <input type="checkbox" id="fuente_twitter" name="discovery_methods[]" value="Twitter">
                     <label for="fuente_twitter" style="display: inline;">Twitter</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_linkedin" name="fuente_curso[]" value="LinkedIn">
+                    <input type="checkbox" id="fuente_linkedin" name="discovery_methods[]" value="LinkedIn">
                     <label for="fuente_linkedin" style="display: inline;">LinkedIn</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_whatsapp" name="fuente_curso[]" value="WhatsApp">
+                    <input type="checkbox" id="fuente_whatsapp" name="discovery_methods[]" value="WhatsApp">
                     <label for="fuente_whatsapp" style="display: inline;">WhatsApp</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_telegram" name="fuente_curso[]" value="Telegram">
+                    <input type="checkbox" id="fuente_telegram" name="discovery_methods[]" value="Telegram">
                     <label for="fuente_telegram" style="display: inline;">Telegram</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_referido" name="fuente_curso[]" value="Referido por amigo/colega">
+                    <input type="checkbox" id="fuente_referido" name="discovery_methods[]" value="Referido por amigo/colega">
                     <label for="fuente_referido" style="display: inline;">Referido por amigo/colega</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="fuente_otra" name="fuente_curso[]" value="Otra">
+                    <input type="checkbox" id="fuente_otra" name="discovery_methods[]" value="Otra">
                     <label for="fuente_otra" style="display: inline;">Otra</label>
                 </div>
             </div>
@@ -66,17 +66,17 @@
 
         <div class="form-group">
             <label for="referencia">Si fuiste referido por un amigo/colega o pusiste "otra" cuéntanos quién o cómo.</label>
-            <textarea id="referencia" name="referencia"></textarea>
+            <textarea id="referencia" name="referral_info"></textarea>
         </div>
 
         <div class="form-group">
             <label for="codigo_beca">Código de Beca CIFPLAYAS (Si no tienes contesta "No aplica")</label>
-            <input type="text" id="codigo_beca" name="codigo_beca" value="No aplica">
+            <input type="text" id="codigo_beca" name="scholarship_code" value="No aplica">
         </div>
 
         <div class="form-group">
             <label for="nivel_educacional">Nivel educacional</label>
-            <select id="nivel_educacional" name="nivel_educacional">
+            <select id="nivel_educacional" name="education_level">
                 <option value="">Seleccione una opción</option>
                 <option value="Secundaria">Secundaria</option>
                 <option value="Técnico">Técnico</option>
@@ -88,17 +88,17 @@
 
         <div class="form-group">
             <label for="area_estudios">En qué área realizaste o estás realizando tus estudios?</label>
-            <input type="text" id="area_estudios" name="area_estudios">
+            <input type="text" id="area_estudios" name="study_area">
         </div>
 
         <div class="form-group">
             <label for="area_laboral">En qué área te desarrollas laboralmente? o cuál es tu área de interés si estás estudiando?</label>
-            <input type="text" id="area_laboral" name="area_laboral">
+            <input type="text" id="area_laboral" name="work_area">
         </div>
 
         <div class="form-group">
             <label for="motivo_curso">Por qué quieres realizar el curso móvil?</label>
-            <textarea id="motivo_curso" name="motivo_curso"></textarea>
+            <textarea id="motivo_curso" name="course_motivation"></textarea>
         </div>
     </div>
 

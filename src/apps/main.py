@@ -6,8 +6,13 @@ from src.core.services import StudentService
 from src.infrastructure.repositories import TortoiseStudentRepository
 from src.infrastructure.database.tortoise.init_db import init_db
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__, template_folder='template')
+app.secret_key = os.getenv('FLASK_SECRET_KEY', '18d8791438b46514da6b131e360a2392')  # Replace with a secure, random string
 
 async def main():
     await init_db()
