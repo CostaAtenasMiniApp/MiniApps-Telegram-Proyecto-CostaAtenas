@@ -1,14 +1,15 @@
 from datetime import datetime
 from typing import Optional, List
 
+
 class StudentDomain:
     def __init__(
         self,
-        student_id: int,
         first_name: str,
         last_name: str,
         email: str,
         registration_date: datetime,
+        student_id: Optional[int] = None,
         # Sección Identificación
         national_id: Optional[str] = None,
         phone: Optional[str] = None,
@@ -20,6 +21,7 @@ class StudentDomain:
         belongs_to_hotel: bool = False,
         hotel_name: Optional[str] = None,
         age: Optional[int] = None,
+        other_discovery_info: Optional[str] = None,
         discovery_methods: Optional[List[str]] = None,
         referral_info: Optional[str] = None,
         scholarship_code: str = "No aplica",
@@ -31,7 +33,7 @@ class StudentDomain:
         wants_certification_info: bool = False
     ):
         # Identificación básica
-        self.student_id = student_id
+        self.student_id=student_id
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
@@ -49,6 +51,7 @@ class StudentDomain:
         self.belongs_to_hotel = belongs_to_hotel
         self.hotel_name = hotel_name
         self.age = age
+        self.other_discovery_info=other_discovery_info
         self.discovery_methods = discovery_methods or []
         self.referral_info = referral_info
         self.scholarship_code = scholarship_code
@@ -78,6 +81,7 @@ class StudentDomain:
             belongs_to_hotel=student_model.belongs_to_hotel,
             hotel_name=student_model.hotel_name,
             age=student_model.age,
+            other_discovery_info=student_model.other_discovery_info,
             discovery_methods=student_model.discovery_method,
             referral_info=student_model.referral_info,
             scholarship_code=student_model.scholarship_code,
@@ -110,6 +114,7 @@ class StudentDomain:
             'belongs_to_hotel': self.belongs_to_hotel,
             'hotel_name': self.hotel_name,
             'age': self.age,
+            'other_discovery_info': self.other_discovery_info,
             'discovery_methods': self.discovery_methods,
             'referral_info': self.referral_info,
             'scholarship_code': self.scholarship_code,

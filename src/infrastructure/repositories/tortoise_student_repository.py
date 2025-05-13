@@ -3,7 +3,6 @@ from typing import List, Optional
 from src.core.ports.istudent_repository import IStudentRepository
 from src.core.domain import StudentDomain, Enrollment
 from src.infrastructure.database.tortoise.models import Student
-from tortoise import fields, models
 from tortoise.transactions import in_transaction
 
 
@@ -14,26 +13,46 @@ class TortoiseStudentRepository(IStudentRepository):
         Retorna el student_id del estudiante guardado.
         """
         async with in_transaction():
-            student_model, created = await Student.get_or_create(
-                student_id=student.student_id,
-                defaults={
-                    "first_name": student.first_name,
-                    "last_name": student.last_name,
-                    "email": student.email,
-                    "registration_date": student.registration_date
-                }
-            )
+            student_data = {
+                "first_name": student.first_name,
+                "last_name": student.last_name,
+                "email": student.email,
+                "national_id": student.national_id,
+                "phone": student.phone,
+                "country": student.country,
+                "city": student.city,
+                "is_proplayas_member": student.is_proplayas_member,
+                "proplayas_node": student.proplayas_node,
+                "belongs_to_hotel": student.belongs_to_hotel,
+                "hotel_name": student.hotel_name,
+                "age": student.age,
+                "other_discovery_info": student.other_discovery_info,
+                "referral_info": student.referral_info,
+                "education_level": student.education_level,
+                "study_area": student.study_area,
+                "work_area": student.work_area,
+                "course_motivation": student.course_motivation,
+                "wants_certification_info": student.wants_certification_info,
+                "registration_date": student.registration_date
+            }
 
-            if not created:
-                student_model.first_name = student.first_name
-                student_model.last_name = student.last_name
-                student_model.email = student.email
-                student_model.registration_date = student.registration_date
+            if student.student_id is None:
+                # Crear nuevo estudiante
+                student_model = await Student.create(**student_data)
+            else:
+                # Actualizar estudiante existente
+                student_model = await Student.get(student_id=student.student_id)
+                await student_model.update_from_dict(student_data).save()
+
+            # Manejar métodos de descubrimiento (relación ManyToMany)
+            if student.discovery_methods:
+                await student_model.discovery_methods.clear()
+                await student_model.discovery_methods.add(*student.discovery_methods)
+
+            # Manejar beca (relación ForeignKey)
+            if hasattr(student, 'scholarship') and student.scholarship:
+                student_model.scholarship = student.scholarship
                 await student_model.save()
-
-            # Aquí deberías manejar las enrollments si es necesario
-            # Por ejemplo:
-            # await self._process_enrollments(student_model, student.enrollments)
 
             return student_model.student_id
 

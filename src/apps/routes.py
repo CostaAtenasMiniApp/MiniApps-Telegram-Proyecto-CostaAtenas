@@ -1,6 +1,7 @@
 from flask import render_template, request, jsonify, redirect, url_for, flash
 from src.core.domain.student_domain import StudentDomain
 from src.core.services import StudentService
+from datetime import datetime
 
 from .EcecuteCommandBot import EcecuteCommandBot
 
@@ -48,8 +49,9 @@ def register_routes(app, student_service: StudentService):
             # Procesar métodos de descubrimiento (checkboxes)
             discovery_methods = request.form.getlist('discovery_method')
 
-            # Crear instancia del estudiante
-            student =  StudentDomain(
+            # Crear instancia del estudiante SIN student_id para nuevo registro
+            student = StudentDomain(
+                registration_date=datetime.now(),
                 email=form_data['email'],
                 first_name=form_data['first_name'],
                 last_name=form_data['last_name'],
@@ -62,7 +64,8 @@ def register_routes(app, student_service: StudentService):
                 belongs_to_hotel=form_data.get('belongs_to_hotel') == 'true',
                 hotel_name=form_data.get('hotel_name'),
                 age=int(form_data['age']) if form_data.get('age') else None,
-                discovery_method=form_data.get('discovery_methods'),
+                discovery_methods=discovery_methods,
+                other_discovery_info=form_data.get('other_discovery_info'),
                 referral_info=form_data.get('referral_info'),
                 scholarship_code=form_data.get('scholarship_code', 'No aplica'),
                 education_level=form_data.get('education_level'),

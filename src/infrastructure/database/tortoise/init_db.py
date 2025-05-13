@@ -1,22 +1,27 @@
 from tortoise import Tortoise, run_async
 from .models import initialize_discovery_methods
 
-async def init_db():
-    # Configuración de la conexión a SQLite
-    await Tortoise.init(
-        db_url = "sqlite://db.sqlite3",  # Ruta al archivo SQLite
-        modules={
+# Configuración necesaria para Aerich (añade esto)
+TORTOISE_ORM = {
+    "connections": {
+        "default": "sqlite://db.sqlite3",
+    },
+    "apps": {
+        "models": {
             "models": [
-                "src.infrastructure.database.tortoise.models",  # Ruta a tus modelos
-            ]
-        }
-    )
+                "src.infrastructure.database.tortoise.models",
+                "aerich.models"  # ¡Importante para Aerich!
+            ],
+            "default_connection": "default",
+        },
+    },
+}
 
-    # Genera los esquemas en la base de datos solo si no están creados
+async def init_db():
+    # Usa la configuración de TORTOISE_ORM
+    await Tortoise.init(config=TORTOISE_ORM)  # <- Cambia esta línea
     await Tortoise.generate_schemas()
-    await initialize_discovery_methods()  # <-- Aquí se inicializan los datos de los nomencladores
+    await initialize_discovery_methods()
     print("✅ Base de datos SQLite inicializada")
 
-# Ejecutar la inicialización (solo para pruebas)
-""" if __name__ == "__main__":
-    run_async(init_db()) """
+# (El resto del código se mantiene igual)

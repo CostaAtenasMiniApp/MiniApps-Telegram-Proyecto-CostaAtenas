@@ -1,0 +1,5 @@
+aerich init -t src.infrastructure.database.tortoise.init_db.TORTOISE_ORM
+aerich init-db
+
+aerich migrate --name initial  # Crea la migración
+aerich upgrade  # Aplica los cambios a la BD
