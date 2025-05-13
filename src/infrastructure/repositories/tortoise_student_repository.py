@@ -81,13 +81,28 @@ class TortoiseStudentRepository(IStudentRepository):
         students = []
 
         for model in student_models:
-            # Cargar enrollments para cada estudiante si es necesario
             students.append(StudentDomain(
                 student_id=model.student_id,
                 first_name=model.first_name,
                 last_name=model.last_name,
                 email=model.email,
-                registration_date=model.registration_date,
+                national_id=model.national_id,
+                phone=model.phone,
+                country=model.country,
+                city=model.city,
+                is_proplayas_member=model.is_proplayas_member,
+                proplayas_node=model.proplayas_node,
+                belongs_to_hotel=model.belongs_to_hotel,
+                hotel_name=model.hotel_name,
+                age=model.age,
+                other_discovery_info=model.other_discovery_info,
+                referral_info=model.referral_info,
+                education_level=model.education_level,
+                study_area=model.study_area,
+                work_area=model.work_area,
+                course_motivation=model.course_motivation,
+                wants_certification_info=model.wants_certification_info,
+                registration_date=model.registration_date
             ))
 
         return students

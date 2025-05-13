@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import Optional, List
 
-
 class StudentDomain:
     def __init__(
         self,

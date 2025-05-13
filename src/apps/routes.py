@@ -84,3 +84,12 @@ def register_routes(app, student_service: StudentService):
             flash(f'Error al procesar el formulario: {str(e)}', 'danger')
             return redirect(url_for('show_form'))
 
+    # Añadir esta nueva ruta al final del archivo routes.py
+    @app.route('/students/list', methods=['GET'])
+    async def list_students():
+        try:
+            students = await student_service.get_all_students()
+            return render_template('miniapp_student/students_list.html', students=students)
+        except Exception as e:
+            flash(f'Error al obtener la lista de estudiantes: {str(e)}', 'danger')
+            return redirect(url_for('show_form'))
