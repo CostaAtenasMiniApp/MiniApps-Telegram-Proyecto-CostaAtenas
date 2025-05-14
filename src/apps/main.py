@@ -12,18 +12,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__, template_folder='template')
-app.secret_key = os.getenv('FLASK_SECRET_KEY', '18d8791438b46514da6b131e360a2392')  # Replace with a secure, random string
+app.secret_key = os.getenv('FLASK_SECRET_KEY', '18d8791438b46514da6b131e360a2392')
 
-async def main():
+# Mueve la inicialización a una función aparte
+async def init_app():
     await init_db()
-    # Inicializa el repositorio de student y el servicio de student
     student_repository = TortoiseStudentRepository()
     student_service = StudentService(student_repository)
-
-    # Registrar las rutas desde el archivo separado
     register_routes(app, student_service)
-    app.run(debug=True)
 
-
+# Esto asegura que `app` esté disponible para PythonAnywhere
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(init_app())
+    app.run(debug=True)
