@@ -9,7 +9,7 @@ TORTOISE_ORM = {
     "apps": {
         "models": {
             "models": [
-                "src.infrastructure.database.tortoise.models",
+                "src.infrastructure.database.tortoise_db_models.models",
                 "aerich.models"  # ¡Importante para Aerich!
             ],
             "default_connection": "default",

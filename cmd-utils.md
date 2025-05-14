@@ -9,7 +9,7 @@ python -m http.server
 
 ## Migrar la BD
 
-aerich init -t src.infrastructure.database.tortoise.init_db.TORTOISE_ORM
+aerich init -t src.infrastructure.database.tortoise_db_models.init_db.TORTOISE_ORM
 aerich init-db
 
 aerich migrate --name initial  # Crea la migración
