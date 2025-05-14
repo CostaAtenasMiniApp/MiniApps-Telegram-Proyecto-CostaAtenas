@@ -1,59 +1,261 @@
-/* Tabla listar estudiantes... */
+:root {
+    --color-primary: #4e82bf;
+    --color-secondary: #e3c83b;
+    --color-accent: #1b4dc1;
+    --color-text: #333;
+    --color-text-light: #edf3f8;
+    --color-border: #e1e5eb;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
     padding: 20px;
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.header-container h1 {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: 1.8rem;
+}
+
+.btn-back {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-back:hover {
+    background-color: #3a6ea5;
+    transform: translateY(-2px);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 2px 10px var(--color-shadow);
+    border-radius: 8px;
 }
 
 .student-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.student-table th, .student-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    min-width: 600px; /* Ancho mínimo para pantallas grandes */
 }
 
 .student-table th {
-    font-weight: 600;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.student-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+.student-table tr:nth-child(even) {
+    background-color: rgba(78, 130, 191, 0.05);
 }
 
 .student-table tr:hover {
-    background-color:  #4e96bf;
+    background-color: rgba(78, 130, 191, 0.1);
 }
 
-.btn-sm {
-    padding: 5px 10px;
-    font-size: 12px;
-    margin-right: 5px;
-}
-
-.table-responsive {
-    overflow-x: auto;
-}
-
-/* Boton volver atras... */
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.btn-back {
-    background-color: #66737e;
-    color: white;
-    padding: 8px 16px;
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
     text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    margin-right: 5px;
+    display: inline-block;
+    text-align: center;
 }
 
-.btn-back:hover {
-    background-color: #5a6268;
+.btn-primary {
+    background-color: var(--color-primary);
     color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a6ea5;
+}
+
+.btn-warning {
+    background-color: var(--color-secondary);
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #d4b42a;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .student-table th,
+    .student-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .student-table {
+        min-width: 100%;
+    }
+
+    .student-table th {
+        display: none;
+    }
+
+    .student-table td {
+        display: block;
+        padding: 10px;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .student-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: bold;
+        color: var(--color-primary);
+    }
+
+    .student-table tr {
+        margin-bottom: 15px;
+        display: block;
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    .student-table td[data-label="Acciones"] {
+        text-align: center;
+        padding-left: 10px;
+    }
+
+    .student-table td[data-label="Acciones"]:before {
+        display: none;
+    }
+}
+
+/*test*/
+/* ... (mantén todo el CSS anterior) ... */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .student-table {
+        min-width: 100%;
+    }
+
+    .student-table thead {
+        display: none;
+    }
+
+    .student-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .student-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: 1px solid var(--color-border);
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .student-table td:last-child {
+        border-bottom: none;
+    }
+
+    .student-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: bold;
+        color: var(--color-primary);
+        text-align: left;
+    }
+
+    .student-table td[data-label="Acciones"] {
+        display: block;
+        text-align: center;
+        padding-left: 15px;
+    }
+
+    .student-table td[data-label="Acciones"]:before {
+        display: none;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .btn {
+        flex: 1;
+        max-width: 100px;
+        padding: 8px 5px;
+    }
 }

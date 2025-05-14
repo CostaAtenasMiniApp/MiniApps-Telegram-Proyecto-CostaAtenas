@@ -346,3 +346,17 @@ footer {
     left: 0;
     z-index: -1;
 }
+
+
+.btn-back {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #3a6ea5;
+}
