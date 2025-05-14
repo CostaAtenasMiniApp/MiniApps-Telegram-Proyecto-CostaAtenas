@@ -1,5 +1,5 @@
 from flask import Flask
-from src.routes import register_routes  # Cambiado de .routes a src.routes
+from .routes import register_routes
 import asyncio
 
 from src.core.services import StudentService
