@@ -19,18 +19,6 @@
     min-height: 100vh;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--color-primary);
-    width: 100%;
-}
-
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {
