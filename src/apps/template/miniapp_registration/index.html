@@ -5,7 +5,10 @@
 {% endblock %}
 {% block content %}
     <div class="container">
-        <h1>Formulario de Registro</h1>
+        <div class="header-container">
+            <h1>Formulario de Registro</h1>
+            <a href="{{ url_for('landing_page') }}" class="btn btn-back">← Volver al Inicio</a>
+        </div>
 
         <div class="progress-steps">
             <div class="step active" data-step="1">1</div>

@@ -173,18 +173,21 @@ main {
 }
 
 .btn {
-    padding: 12px 25px;
-    font-size: 1.1rem;
     color: var(--color-primary);
     background-color: var(--color-secondary);
-    border: none;
-    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
     text-decoration: none;
-    display: inline-block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover {
@@ -347,16 +350,24 @@ footer {
     z-index: -1;
 }
 
-
 .btn-back {
     background-color: var(--color-primary);
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 6px;
     text-decoration: none;
+    font-size: 0.9rem;
     transition: all 0.3s;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
+
 
 .btn-back:hover {
     background-color: #3a6ea5;
+    transform: translateY(-2px);
 }
