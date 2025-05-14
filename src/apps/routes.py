@@ -93,3 +93,15 @@ def register_routes(app, student_service: StudentService):
         except Exception as e:
             flash(f'Error al obtener la lista de estudiantes: {str(e)}', 'danger')
             return redirect(url_for('show_form'))
+
+    @app.route('/students/<int:student_id>', methods=['GET'])
+    async def view_student(student_id: int):
+        try:
+            student = await student_service.get_student_by_id(student_id)
+            if not student:
+                flash('Estudiante no encontrado', 'danger')
+                return redirect(url_for('list_students'))
+            return render_template('miniapp_student/student_view.html', student=student)
+        except Exception as e:
+            flash(f'Error al cargar el estudiante: {str(e)}', 'danger')
+            return redirect(url_for('list_students'))

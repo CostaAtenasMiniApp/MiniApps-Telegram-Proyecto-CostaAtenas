@@ -66,14 +66,9 @@ class TortoiseStudentRepository(IStudentRepository):
         # Por ejemplo:
         # enrollments = await self._get_enrollments_for_student(student_model)
 
-        return StudentDomain(
-            student_id=student_model.student_id,
-            first_name=student_model.first_name,
-            last_name=student_model.last_name,
-            email=student_model.email,
-            registration_date=student_model.registration_date,
-            enrollments=[]  # Reemplazar con las enrollments cargadas
-        )
+        return StudentDomain.from_model(student_model)
+
+
 
     async def find_all(self) -> List[StudentDomain]:
         """Retorna todos los estudiantes en la base de datos."""

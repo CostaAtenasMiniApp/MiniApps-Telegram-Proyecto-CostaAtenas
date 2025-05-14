@@ -1,0 +1,209 @@
+:root {
+    --color-primary: #4e82bf;
+    --color-secondary: #e3c83b;
+    --color-accent: #1b4dc1;
+    --color-text: #333333;
+    --color-text-light: #edf3f8;
+    --color-header: #87CEEB;
+    --color-card-bg: rgba(255, 255, 255, 0.9);
+    --color-border: #e1e5eb;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-success: #28a745;
+}
+
+.student-view {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.student-card {
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--color-shadow);
+    padding: 30px;
+    margin-top: 20px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.student-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.student-header h2 {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.student-id {
+    color: var(--color-primary);
+    font-size: 1rem;
+    background-color: rgba(78, 130, 191, 0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.detail-section h3 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.detail-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    width: 200px;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+}
+
+.detail-value {
+    flex: 1;
+    color: var(--color-text);
+    padding: 8px 0;
+    min-width: 200px;
+}
+
+.student-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #3a6ea5;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: #333;
+}
+
+.btn-primary:hover {
+    background-color: #d4b42a;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #3a6ea5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .student-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .detail-label, .detail-value {
+        width: 100%;
+    }
+
+    .student-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .student-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .detail-section {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

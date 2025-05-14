@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Optional, List
 
+
 class StudentDomain:
     def __init__(
         self,
@@ -29,7 +30,8 @@ class StudentDomain:
         work_area: Optional[str] = None,
         course_motivation: Optional[str] = None,
         # Sección Legal
-        wants_certification_info: bool = False
+        wants_certification_info: bool = False,
+        enrollments: List = []
     ):
         # Identificación básica
         self.student_id=student_id
@@ -61,6 +63,7 @@ class StudentDomain:
 
         # Sección Legal
         self.wants_certification_info = wants_certification_info
+        self.enrollments=enrollments
 
     @classmethod
     def from_model(cls, student_model):
@@ -81,14 +84,15 @@ class StudentDomain:
             hotel_name=student_model.hotel_name,
             age=student_model.age,
             other_discovery_info=student_model.other_discovery_info,
-            discovery_methods=student_model.discovery_method,
+            #discovery_methods=student_model.discovery_method,
             referral_info=student_model.referral_info,
-            scholarship_code=student_model.scholarship_code,
+            #scholarship_code=student_model.scholarship_code,
             education_level=student_model.education_level,
             study_area=student_model.study_area,
             work_area=student_model.work_area,
             course_motivation=student_model.course_motivation,
-            wants_certification_info=student_model.wants_certification_info
+            wants_certification_info=student_model.wants_certification_info,
+            enrollments=student_model.enrollments
         )
 
     def to_dict(self):
@@ -123,7 +127,8 @@ class StudentDomain:
             'course_motivation': self.course_motivation,
 
             # Sección Legal
-            'wants_certification_info': self.wants_certification_info
+            'wants_certification_info': self.wants_certification_info,
+            'enrollments': self.enrollments
         }
 
     def validate(self):

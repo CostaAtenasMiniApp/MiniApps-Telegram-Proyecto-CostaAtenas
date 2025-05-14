@@ -5,7 +5,10 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <h1>Lista de Estudiantes Registrados</h1>
+    <div class="header-container">
+        <h1>Lista de Estudiantes Registrados</h1>
+        <a href="{{ url_for('landing_page') }}" class="btn btn-back">Volver al Inicio</a>
+    </div>
 
     <div class="table-responsive">
         <table class="student-table">
@@ -28,7 +31,7 @@
                     <td>{{ student.email }}</td>
                     <td>{{ student.registration_date.strftime('%Y-%m-%d %H:%M') }}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="{{ url_for('view_student', student_id=student.student_id) }}" class="btn btn-primary btn-sm">Ver</a>
                         <a href="#" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                 </tr>
