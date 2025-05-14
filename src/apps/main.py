@@ -1,8 +1,8 @@
 from flask import Flask
-from src.routes import register_routes  # Cambiado a import absoluto
+from src.apps.routes import register_routes  # Cambiado a import absoluto
 from src.core.services import StudentService
 from src.infrastructure.repositories import TortoiseStudentRepository
-from src.infrastructure.database.tortoise.init_db import init_db
+from src.infrastructure.database.tortoise_db_models.init_db import init_db
 import os
 from dotenv import load_dotenv
 
