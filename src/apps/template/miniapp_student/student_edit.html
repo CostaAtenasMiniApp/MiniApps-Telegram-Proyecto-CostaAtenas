@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Editar Estudiante{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_student_edit.css') }}">
+{% endblock %}
+{% block content %}
+<div class="container student-edit">
+    <div class="header-container">
+        <h1>Editar Estudiante</h1>
+        <a href="{{ url_for('view_student', student_id=student.student_id) }}" class="btn btn-back">
+            ← Volver al detalle
+        </a>
+    </div>
+
+    <form method="POST" action="{{ url_for('edit_student', student_id=student.student_id) }}" class="student-form">
+        <div class="form-card">
+            <div class="form-section">
+                <h2>Información Básica</h2>
+                <div class="form-group">
+                    <label for="first_name">Nombre:</label>
+                    <input type="text" id="first_name" name="first_name" value="{{ student.first_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Apellido:</label>
+                    <input type="text" id="last_name" name="last_name" value="{{ student.last_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ student.email }}" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información de Contacto</h2>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" value="{{ student.phone or '' }}">
+                </div>
+                <div class="form-group">
+                    <label for="country">País:</label>
+                    <input type="text" id="country" name="country" value="{{ student.country or '' }}">
+                </div>
+                <div class="form-group">
+                    <label for="city">Ciudad:</label>
+                    <input type="text" id="city" name="city" value="{{ student.city or '' }}">
+                </div>
+                <div class="form-group">
+                    <label for="age">Edad:</label>
+                    <input type="number" id="age" name="age" min="15" max="100" value="{{ student.age or '' }}">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-save">Guardar Cambios</button>
+                <a href="{{ url_for('view_student', student_id=student.student_id) }}" class="btn btn-cancel">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts_student_edit.js') }}" defer></script>
+{% endblock %}

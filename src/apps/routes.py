@@ -105,3 +105,51 @@ def register_routes(app, student_service: StudentService):
         except Exception as e:
             flash(f'Error al cargar el estudiante: {str(e)}', 'danger')
             return redirect(url_for('list_students'))
+
+    @app.route('/students/<int:student_id>/edit', methods=['GET', 'POST'])
+    async def edit_student(student_id: int):
+        if request.method == 'GET':
+            try:
+                student = await student_service.get_student_by_id(student_id)
+                if not student:
+                    flash('Estudiante no encontrado', 'danger')
+                    return redirect(url_for('list_students'))
+                return render_template('miniapp_student/student_edit.html', student=student)
+            except Exception as e:
+                flash(f'Error al cargar el estudiante: {str(e)}', 'danger')
+                return redirect(url_for('list_students'))
+
+        elif request.method == 'POST':
+            try:
+                form_data = request.form
+                discovery_methods = request.form.getlist('discovery_method')
+
+                await student_service.update_student(
+                    student_id=student_id,
+                    first_name=form_data['first_name'],
+                    last_name=form_data['last_name'],
+                    email=form_data['email'],
+                    phone=form_data.get('phone'),
+                    country=form_data.get('country'),
+                    city=form_data.get('city'),
+                    age=int(form_data['age']) if form_data.get('age') else None,
+                    national_id=form_data.get('national_id'),
+                    is_proplayas_member=form_data.get('is_proplayas_member') == 'true',
+                    proplayas_node=form_data.get('proplayas_node'),
+                    belongs_to_hotel=form_data.get('belongs_to_hotel') == 'true',
+                    hotel_name=form_data.get('hotel_name'),
+                    other_discovery_info=form_data.get('other_discovery_info'),
+                    #discovery_methods=discovery_methods,
+                    referral_info=form_data.get('referral_info'),
+                    scholarship_code=form_data.get('scholarship_code', 'No aplica'),
+                    education_level=form_data.get('education_level'),
+                    study_area=form_data.get('study_area'),
+                    work_area=form_data.get('work_area'),
+                    course_motivation=form_data.get('course_motivation'),
+                    wants_certification_info='wants_certification_info' in form_data
+                )
+                flash('Estudiante actualizado correctamente', 'success')
+                return redirect(url_for('view_student', student_id=student_id))
+            except Exception as e:
+                flash(f'Error al actualizar el estudiante: {str(e)}', 'danger')
+                return redirect(url_for('edit_student', student_id=student_id))
