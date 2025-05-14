@@ -1,5 +1,5 @@
-from src.infrastructure.database.tortoise.models.DiscoveryMethod import DiscoveryMethod
-from src.infrastructure.database.tortoise.models.initial_data import DISCOVERY_METHODS_DATA
+from src.infrastructure.database.tortoise_db_models.models.DiscoveryMethod import DiscoveryMethod
+from src.infrastructure.database.tortoise_db_models.models.initial_data import DISCOVERY_METHODS_DATA
 
 from tortoise.exceptions import IntegrityError
 import logging

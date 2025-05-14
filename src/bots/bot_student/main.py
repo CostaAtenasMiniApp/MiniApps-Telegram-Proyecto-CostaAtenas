@@ -9,7 +9,7 @@ import os
 from dotenv import load_dotenv
 from src.core.services import StudentService, CourseService
 from src.infrastructure.repositories import TortoiseStudentRepository, TortoiseCourseRepository
-from src.infrastructure.database.tortoise.init_db import init_db
+from src.infrastructure.database.tortoise_db_models.init_db import init_db
 
 from .register_commads import (
     register_additional_commands,

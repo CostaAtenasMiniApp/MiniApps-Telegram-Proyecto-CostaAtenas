@@ -2,7 +2,7 @@ from datetime import date
 from typing import List, Optional
 from src.core.ports.icourse_repository import ICourseRepository
 from src.core.domain import CourseDomain
-from src.infrastructure.database.tortoise.models import Course
+from src.infrastructure.database.tortoise_db_models.models import Course
 from tortoise import fields, models
 from tortoise.transactions import in_transaction
 

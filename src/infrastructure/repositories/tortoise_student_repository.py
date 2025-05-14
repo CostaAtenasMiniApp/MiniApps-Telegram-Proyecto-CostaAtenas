@@ -2,7 +2,7 @@ from datetime import date
 from typing import List, Optional
 from src.core.ports.istudent_repository import IStudentRepository
 from src.core.domain import StudentDomain, Enrollment
-from src.infrastructure.database.tortoise.models import Student
+from src.infrastructure.database.tortoise_db_models.models import Student
 from tortoise.transactions import in_transaction
 
 
