@@ -2,7 +2,6 @@
     "python.analysis.extraPaths": [
         "d:/Projects/MiniApps-Telegram-Proyecto-CostaAtenas/src"
     ],
-    "editor.fontSize": 12,
     "python.linting.enabled": true,
     "cSpell.language": "en,es",
     "cSpell.enableFiletypes": ["html", "plaintext"],
