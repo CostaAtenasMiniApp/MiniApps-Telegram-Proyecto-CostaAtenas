@@ -37,10 +37,67 @@ header {
     z-index: 1000;
 }
 
+/* Modifica las reglas existentes para el logo y el header */
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 90%; /* Añade un ancho máximo */
+    margin: 0 auto; /* Centra el logo */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word; /* Permite que el texto se rompa en varias líneas */
+    overflow-wrap: break-word; /* Alternativa para algunos navegadores */
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-top: 5px;
+    width: 90%; /* Añade un ancho máximo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajustes específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        height: auto; /* Altura automática para adaptarse al contenido */
+        padding: 15px 0; /* Añade padding vertical */
+    }
+
+    .logo {
+        flex-direction: column; /* Apila elementos verticalmente */
+        gap: 5px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem; /* Reduce más el tamaño de fuente */
+        line-height: 1.3; /* Mejor espaciado entre líneas */
+        padding: 0 10px; /* Añade padding horizontal */
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+        padding: 0 10px; /* Añade padding horizontal */
+    }
+}
+
+/* Para pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1rem; /* Tamaño de fuente aún más pequeño */
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+    }
 }
 
 .logo img {
