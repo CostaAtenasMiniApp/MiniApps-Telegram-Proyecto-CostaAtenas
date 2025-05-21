@@ -81,6 +81,7 @@ h1 {
 /* FORMULARIO ESTADÍSTICOS */
 #estadisticos-form {
     margin-top: 20px;
+    max-width: 350px;
 }
 
 #estadisticos-form h2 {
@@ -161,6 +162,7 @@ h1 {
 /* FORMULARIO IDENTIFICACIÓN */
 #identificacion-form {
     margin-top: 20px;
+    max-width: 350px;
 }
 
 #identificacion-form h2 {
@@ -231,6 +233,7 @@ h1 {
 /* FORMULARIO LEGAL */
 #legal-form {
     margin-top: 20px;
+    max-width: 350px;
 }
 
 #legal-form h2 {
