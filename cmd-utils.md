@@ -9,11 +9,17 @@ python -m http.server
 
 ## Migrar la BD
 
+# 1. Inicializa Aerich (solo primera vez)
 aerich init -t src.infrastructure.database.tortoise_db_models.init_db.TORTOISE_ORM
+
+# 2. Crea la migración inicial
 aerich init-db
 
-aerich migrate --name initial  # Crea la migración
-aerich upgrade  # Aplica los cambios a la BD
+# 3. Genera las migraciones (si hay cambios)
+aerich migrate --name "initial_migration"
+
+# 4. Aplica migraciones
+aerich upgrade
 
 ### Web Hoock
 
