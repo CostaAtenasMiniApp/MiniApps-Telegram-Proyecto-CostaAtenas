@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos CIF Playa Telegram{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="w-full bg-primary py-20 md:py-40">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight mb-6">Aprende con los mejores
+          cursos online</h1>
+        <p class="text-lg md:text-xl text-text mb-8">Descubre una nueva forma de aprender con nuestros cursos diseñados
+          por expertos. Avanza en tu carrera profesional a tu propio ritmo.</p>
+        <div class="flex flex-col sm:flex-row space-y-4 items-center justify-center sm:space-y-0 sm:space-x-4">
+          <a href="/courses"
+            class="px-8 py-3 bg-secondary text-accent font-bold rounded-lg hover:bg-opacity-90 transition duration-300 text-center">Ver
+            Cursos</a>
+          <a href="/trial"
+            class="px-8 py-3 bg-transparent border-2 border-text text-text font-bold rounded-lg hover:bg-text hover:text-primary transition duration-300 text-center">Prueba
+            Gratuita</a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <img src="https://placehold.co/600x400" alt="Estudiantes aprendiendo online"
+          class="rounded-lg shadow-xl max-w-full h-auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-8">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4">
+      <div class="text-center">
+        <p class="text-2xl font-bold text-primary md:text-4xl">5+</p>
+        <p class="text-sm text-gray-600 sm:text-base">Años de experiencia</p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-2xl font-bold text-primary md:text-4xl">99%</p>
+        <p class="text-sm text-gray-600 sm:text-base">Satisfacción</p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-2xl font-bold text-primary md:text-4xl">24/7</p>
+        <p class="text-sm text-gray-600 sm:text-base">Soporte</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="beneficios" class="w-full py-16 bg-primary">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4">¿Por qué elegirnos?</h2>
+      <p class="text-lg text-text max-w-3xl mx-auto">Descubre las ventajas que nos diferencian y hacen que nuestros
+        estudiantes nos elijan para su formación profesional.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- 1 -->
+      <div class="bg-card-bg backdrop-blur-sm rounded-lg p-6 text-center">
+        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+          <img src="/static/icons/book.svg" alt="Libro" height="60" width="60">
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2">Contenido de Calidad</h3>
+        <p class="text-text">Cursos diseñados por expertos de la industria con contenido actualizado y relevante.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="bg-card-bg backdrop-blur-sm rounded-lg p-6 text-center">
+        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+          <img src="/static/icons/clock.svg" alt="Reloj" height="60" width="60">
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2">Aprende a tu Ritmo</h3>
+        <p class="text-text">Accede a los cursos cuando quieras y desde donde quieras, sin horarios fijos. Todo desde
+          Telegram.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="bg-card-bg backdrop-blur-sm rounded-lg p-6 text-center">
+        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+          <img src="/static/icons/teacher.svg" alt="Teacher" height="60" width="60">
+        </div>
+        <h3 class="text-xl font-bold text-text mb-2">Certificados</h3>
+        <p class="text-text">Recibe certificados de finalización reconocidos que puedes añadir a tu CV o perfil
+          profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="testimonios" class="py-16 pb-36 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-accent mb-4">Lo que dicen nuestros estudiantes</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">Descubre las experiencias de quienes ya han tomado nuestros
+        cursos y han transformado su carrera profesional.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Review 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="https://placehold.co/150" alt="Foto de perfil" class="w-12 h-12 rounded-full mr-4">
+          <div class="text-left">
+            <h4 class="font-bold text-accent">María González</h4>
+            <p class="text-gray-600 text-sm">Diseñadora UX/UI</p>
+          </div>
+        </div>
+        <p class="text-gray-700">"El curso de Diseño UX/UI superó todas mis expectativas. Los instructores son
+          excelentes y el contenido es muy práctico. Ahora tengo un portafolio impresionante y conseguí un trabajo en
+          una gran empresa."</p>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="https://placehold.co/150" alt="Foto de perfil" class="w-12 h-12 rounded-full mr-4">
+          <div class="text-left">
+            <h4 class="font-bold text-accent">Carlos Rodríguez</h4>
+            <p class="text-gray-600 text-sm">Desarrollador Web</p>
+          </div>
+        </div>
+        <p class="text-gray-700">"Gracias al curso de Desarrollo Web Full-Stack, pude cambiar de carrera y conseguir
+          un trabajo como desarrollador. El contenido es muy completo y los proyectos prácticos me ayudaron a
+          construir un portafolio sólido."</p>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="https://placehold.co/150" alt="Foto de perfil" class="w-12 h-12 rounded-full mr-4">
+          <div class="text-left">
+            <h4 class="font-bold text-accent">Laura Martínez</h4>
+            <p class="text-gray-600 text-sm">Marketing Manager</p>
+          </div>
+        </div>
+        <p class="text-gray-700">"El curso de Marketing Digital Avanzado me dio las herramientas que necesitaba para
+          impulsar mi carrera. Las estrategias que aprendí me permitieron aumentar el tráfico web de mi empresa en un
+          200% en solo 3 meses."</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="static/js/index.js"></script>
+{% endblock %}
