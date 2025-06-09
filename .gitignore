@@ -1,14 +1,21 @@
 # Entorno virtual
 venv/
-env/
+.env/
 .venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
 # Archivos de configuración local
 *.env
 *.local
+*.env.*
 
 # Archivos de configuración de IDE
+.vscode/
 .idea/
+*.code-workspace
 
 # Archivos compilados de Python
 __pycache__/
@@ -48,3 +55,4 @@ docs/_build/
 # Archivos de testing
 .pytest_cache/
 db.sqlite3-wal
+db.sqlite3-shm
