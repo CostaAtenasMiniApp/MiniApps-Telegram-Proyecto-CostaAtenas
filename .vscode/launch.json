@@ -14,6 +14,23 @@
             "request": "launch",
             "module": "src.apps.main",
             "justMyCode": true
+        },
+        {
+            "name": "Debug FastAPI Server",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "src.infrastructure.fastapi_server:app",
+                "--reload",
+                "--port",
+                "8000"
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
         }
     ]
 }

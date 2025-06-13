@@ -1,11 +1,28 @@
+# Comandos
+
 ## Para ejecutar el bot student
+
+```sh
 python -m src.bots.bot_student.main
+```
 
 ## Para ejecutar la miniapp
-python -m src.miniapps.main
+
+```sh
+python -m src.apps.main
+```
+
+## Ejecutar la nueva web
+
+```sh
+uvicorn src.infrastructure.fastapi_server:app --reload --port 8000
+```
 
 ## Mini servidor http para test html
+
+```sh
 python -m http.server
+```
 
 ## Migrar la BD
 

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Contactos - CIF Playa{% endblock %}
+
+{% block content %}
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Hero Section -->
+<section class="w-full bg-primary py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-text leading-tight mb-6">Nuestro Equipo Docente</h1>
+        <p class="text-lg text-text max-w-3xl mx-auto">Conoce a los expertos que imparten nuestros cursos y cómo contactarlos</p>
+    </div>
+</section>
+
+<!-- Contact Grid -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Profesor 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="bg-secondary p-6">
+            <h3 class="text-2xl font-bold text-white">Camilo M. Botero</h3>
+            <p class="text-accent">Experto en Certificaciones</p>
+            </div>
+            <div class="p-6">
+            <h4 class="font-bold text-accent mb-3">Cursos:</h4>
+            <ul class="space-y-2 mb-6">
+                <li class="flex items-start">
+                <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Certificación Bandera Azul</span>
+                </li>
+                <li class="flex items-start">
+                <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Diseño de Programas de Limpieza</span>
+                </li>
+            </ul>
+            <div class="border-t pt-4">
+                <a href="https://wa.me/573136214325" class="inline-flex items-center text-secondary hover:text-primary transition">
+                    <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+                    +57 313 621 4325
+                </a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Profesor 2 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-secondary p-6">
+                <h3 class="text-2xl font-bold text-white">Teresa Vera</h3>
+                <p class="text-accent">Especialista en Dinámica Costera</p>
+                </div>
+                <div class="p-6">
+                <h4 class="font-bold text-accent mb-3">Cursos:</h4>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Dinámica Costera (Explorador/Experto)</span>
+                    </li>
+                    <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Paisaje y Geomorfología Costera</span>
+                    </li>
+                </ul>
+                <div class="border-t pt-4">
+                    <a href="https://wa.me/573136214325" class="inline-flex items-center text-secondary hover:text-primary transition">
+                        <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+                        +57 313 621 4325
+                    </a>
+                </div>
+                </div>
+            </div>
+
+        <!-- Profesor 3 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-secondary p-6">
+                <h3 class="text-2xl font-bold text-white">Pamela Díaz</h3>
+                <p class="text-accent">Experta en Gestión de Residuos</p>
+                </div>
+                <div class="p-6">
+                <h4 class="font-bold text-accent mb-3">Cursos:</h4>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Evaluación de Basura (Método Blat-QQ)</span>
+                    </li>
+                    <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Metodologías para Residuos Sólidos (Experto)</span>
+                    </li>
+                </ul>
+                <div class="border-t pt-4">
+                    <a href="https://wa.me/573136214325" class="inline-flex items-center text-secondary hover:text-primary transition">
+                        <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+                        +57 313 621 4325
+                    </a>
+                </div>
+                </div>
+            </div>
+
+        <!-- Repetir estructura para los demás profesores -->
+
+        </div>
+    </div>
+</section>
+
+<!-- Contact Banner -->
+<section class="bg-primary py-12">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">¿Tienes dudas sobre algún curso?</h2>
+        <div class="max-w-2xl mx-auto">
+        <a href="https://wa.me/573136214325" class="inline-flex items-center justify-center bg-white text-secondary px-8 py-3 rounded-lg font-bold hover:bg-opacity-90 transition duration-300">
+            <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+            Contactar por WhatsApp
+        </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
