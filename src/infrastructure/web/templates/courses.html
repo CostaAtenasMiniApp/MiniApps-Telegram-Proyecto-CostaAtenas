@@ -5,10 +5,11 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="w-full bg-primary py-20">
-    <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight mb-6">Explora Nuestros Cursos</h1>
-        <p class="text-lg md:text-xl text-text mb-8 max-w-3xl mx-auto">Formación especializada en gestión costera y turismo sostenible. Certificaciones internacionales con enfoque práctico.</p>
+<section class="w-full bg-primary py-20 relative overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Playa cursos" class="absolute inset-0 w-full h-full object-cover object-center opacity-60 z-0 pointer-events-none" style="z-index:1;">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight mb-6 drop-shadow-lg">Explora Nuestros Cursos</h1>
+        <p class="text-lg md:text-xl text-text mb-8 max-w-3xl mx-auto drop-shadow-lg">Formación especializada en gestión costera y turismo sostenible. Certificaciones internacionales con enfoque práctico.</p>
     </div>
 </section>
 
@@ -470,40 +471,61 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
+        <!-- Asincrónicos -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-            <span class="text-primary text-xl">📅</span>
+            <!-- Calendar SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <rect x="3" y="5" width="18" height="16" rx="2" stroke-width="2" stroke="currentColor" fill="none"/>
+                <path stroke="currentColor" stroke-width="2" d="M16 3v4M8 3v4M3 9h18"/>
+            </svg>
             </div>
-            <p class="font-medium text-text">100% Asincrónicos</p>
-        </div>
-
-        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
+            <p class="font-medium text-gray-900">100% Asincrónicos</p>
+            </div>
+            <!-- Certificación -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-            <span class="text-primary text-xl">🏅</span>
+            <!-- Award/Medal SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="8" r="5" stroke-width="2" stroke="currentColor" fill="none"/>
+                <path stroke="currentColor" stroke-width="2" d="M12 13v7M9 20h6"/>
+            </svg>
             </div>
-            <p class="font-medium text-text">Certificación Internacional</p>
-        </div>
-
-        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
+            <p class="font-medium text-gray-900">Certificación Internacional</p>
+            </div>
+            <!-- Insignia Digital -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-            <span class="text-primary text-xl">🖥️</span>
+            <!-- Badge SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke="currentColor" stroke-width="2" d="M12 3l3.09 6.26L22 10.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 15.14l-5-4.87 6.91-1.01z" fill="none"/>
+            </svg>
             </div>
-            <p class="font-medium text-text">Insignia Digital</p>
-        </div>
-
-        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
+            <p class="font-medium text-gray-900">Insignia Digital</p>
+            </div>
+            <!-- Soporte Profesores -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-            <span class="text-primary text-xl">👨‍🏫</span>
+            <!-- Support/Teacher SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="7" r="4" stroke-width="2" stroke="currentColor" fill="none"/>
+                <path stroke="currentColor" stroke-width="2" d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/>
+            </svg>
             </div>
-            <p class="font-medium text-text">Soporte Profesores</p>
-        </div>
-
-        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
+            <p class="font-medium text-gray-900">Soporte Profesores</p>
+            </div>
+            <!-- Comunidad Virtual -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center backdrop-blur-sm">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-            <span class="text-primary text-xl">👥</span>
+            <!-- Community/Users SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="7" cy="8" r="3" stroke-width="2" stroke="currentColor" fill="none"/>
+                <circle cx="17" cy="8" r="3" stroke-width="2" stroke="currentColor" fill="none"/>
+                <path stroke="currentColor" stroke-width="2" d="M2 21v-2a4 4 0 014-4h3M22 21v-2a4 4 0 00-4-4h-3"/>
+            </svg>
             </div>
-            <p class="font-medium text-text">Comunidad Virtual</p>
-        </div>
+            <p class="font-medium text-gray-900">Comunidad Virtual</p>
+            </div>
         </div>
     </div>
 </section>
