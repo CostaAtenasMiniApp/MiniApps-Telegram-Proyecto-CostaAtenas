@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from src.infrastructure.routes.web_page import router as api_router
-from src.infrastructure.database.tortoise_db_models.init_db import init_db
 from src.shared import config
 
 def create_app() -> FastAPI:
@@ -15,9 +14,7 @@ def create_app() -> FastAPI:
         version="1.0.0"
     )
 
-    # 2. Inicializar la base de datos
-    #    Esto configura Tortoise ORM con la aplicación. Es crucial.
-    init_db(app)
+
     # 3. Montar el directorio de archivos estáticos
     #    Esto permite que FastAPI sirva archivos como CSS, JS, etc.
     app.mount(
