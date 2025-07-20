@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from src.infrastructure.routes import web_page
+from src.adapters.web_ui.routes import web_page
 from src.shared import config
 import uvicorn
 
