@@ -1,2 +1,2 @@
 # MiniApps-Telegram-Proyecto-CostaAtenas
-Miniapp y Bos del proyecto CostaAtenas
+Miniapp y Bot de telegram del proyecto Curos de CostaAtenas
