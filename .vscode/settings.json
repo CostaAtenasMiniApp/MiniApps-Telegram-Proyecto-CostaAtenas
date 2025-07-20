@@ -18,7 +18,7 @@
     "material-icon-theme.folders.associations": {
         "infrastructure": "components",
         "adapters": "components",
-        "telegram_bot": "bot",
-        "web_ui": "web"
+        "telegram_bot": "app",
+        "web_ui": "public"
     }
 }
